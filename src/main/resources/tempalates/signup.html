@@ -1,3 +1,11 @@
+<!--
+ * @Author: qinghe
+ * @Date: 2021-10-20 16:46:02
+ * @LastEditTime: 2021-10-23 19:55:33
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ÍøÒ³\×¢²áÍøÒ³\img\signup.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome£¡</title>
-    <link rel="icon" href="Eagle-2.png" type="image/x-icon">
-
+    <link rel="icon" href="../static/img/Eagle-2.png" type="image/x-icon">
     <style>
         #login-box {
             border: none;
@@ -54,7 +61,7 @@
         #login-box button {
             border: 0;
             width: 150px;
-            height: 18px;
+            height: 23px;
             margin-top: 18px;
             font-size: 18px;
             color: white;
@@ -63,7 +70,7 @@
         }
         
         body {
-            background: url("shenlin.jpg") center;
+            background: url("../static/img/shenlin.jpg") center;
             background-size: 100% auto;
             background-repeat: no-repeat;
         }
@@ -79,24 +86,32 @@
 <body>
     <form action="#" method="post">
         <div id="login-box">
-            <h1>Login</h1>
+            <h1>Sign up</h1>
             <div class="form">
                 <div class="item">
                     <i></i>
                     <input type="text" placeholder="username" name="username">
                 </div>
+                <label>
+                <input type="radio" name="boy-girl">Boy
+            </label>
+                <label>
+                <input type="radio" name="boy-girl">Girl
+                </label>
+                <div class="item">
+                    <i></i>
+                    <input type="email" placeholder="email" name="email">
+                </div>
                 <div class="item">
                     <i></i>
                     <input type="password" placeholder="password" name="password">
                 </div>
+                <div class="item">
+                    <i></i>
+                    <input type="password" placeholder="ensuer password" name="password">
+                </div>
             </div>
-            <button onclick="window.open('surface.html') " type="submit">Login</button>
-            <p class="forget">Forget?
-                <a href="#">Click!</a>
-            </p>
-            <p class="forget">No once?
-                <a href="signup.html">Click</a>
-            </p>
+            <button onclick="window.open('surface.html') " type="submit">Sign up</button>
         </div>
     </form>
 </body>
