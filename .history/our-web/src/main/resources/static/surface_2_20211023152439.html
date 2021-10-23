@@ -1,0 +1,120 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-20 23:32:08
+ * @LastEditTime: 2021-10-23 15:23:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \img\surface_2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="GB 2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="icon" href="../templates/img/Eagle-2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../templates/css/surface_2.css">
+
+    <body>
+        <div class="shell ">
+            <div class="image" style="background-image: url('../templates/img/surface2.jpg');"></div>
+            <div class="heading ">
+                <h1 style="color: pink; font-size: 50px"></h1>
+            </div>
+            <div class="text ">
+                <h1></h1>
+            </div>
+            <div class="image " style="background-image: url( '../templates/img/surface_2_1.jpg'); "></div>
+            <div class="heading ">
+                <h1 style="color: pink; font-size: 50px "></h1>
+            </div>
+            <div class="text ">
+                <h1></h1>
+            </div>
+            <div class="image " style="background-image: url( '../templates/img/surface_2_4.jpg'); "></div>
+            <div class="heading ">
+                <h1 style="color: pink; font-size: 50px "></h1>
+            </div>
+            <div class="text ">
+                <h1></h1>
+            </div>
+            <div class="image " style="background-image: url( '../templates/img/surface_2_3.jpg'); "></div>
+            <div class="heading ">
+                <a style="text-decoration: none;color: rgb(145, 60, 93); font-size: 50px; font-weight: bold ; " href="#"></a>
+            </div>
+        </div>
+        <div class="top ">
+            <span class="logo">BlockChainLab</span>
+            <center>
+                <ul>
+                    <li class="special "><a href="surface_2.html ">首页</a></li>
+                    <li class="special "><a href="# ">题库</a></li>
+                    <li class="special "><a href="# ">项目集</a></li>
+                    <li class="special "><a href="# ">各种资源</a>
+                        <ul>
+                            <li><a href="# ">电子书</a></li>
+                            <li><a href="# ">前沿资讯</a></li>
+                        </ul>
+                    </li>
+                    <li class="special "><a href="# ">论坛</a></li>
+                    <li class="special ">
+                        <a href="# ">学习路线图</a>
+                        <ul>
+                            <li><a href="# ">前端攻城狮</a></li>
+                            <li><a href="# ">后端攻城狮</a></li>
+                            <li><a href="# ">C 语言</a></li>
+                            <li><a href="# ">Java 语言</a></li>
+                            <li><a href="# ">GIT 基本操作</a></li>
+                            <li><a href="# ">“科学上网”</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <style>
+                    .special {
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                </style>
+            </center>
+        </div>
+    </body>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js "></script>
+
+</head>
+
+<body>
+    <br>
+    <h1></h1>
+    <script type="text/javascript " src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
+    <script type="text/javascript ">
+        jQuery(document).ready(function($) {
+            var a_idx = 0;
+            $("body ").click(function(e) {
+                var a = new Array("富强 ", "民主 ", "文明 ", "和谐 ", "自由 ", "平等 ", "公正 ", "法治 ", "爱国 ", "敬业 ", "诚信 ", "友善 ");
+                var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "#ff6651"
+                });
+                $("body").append($i);
+                $i.animate({
+                    "top": y - 180,
+                    "opacity": 0
+                }, 1500, function() {
+                    $i.remove();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
