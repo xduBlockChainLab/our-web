@@ -1,0 +1,12 @@
+.logo {
+    position: relative;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgb(155, 89, 89);
+    padding-left: 0px;
+}
+
+body {
+    background-color: #1e2022;
+}
