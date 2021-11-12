@@ -1,0 +1,190 @@
+<html lang="en">
+<head>
+    <title>考试系统</title>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function getjson() {
+            let i;
+            const radio = [];
+            for (i = 1; i <= 5; i++) {//获取radio的值
+                const radio_name = String("radio_" + i);
+                radio[i - 1] = $('input:radio[name=' + radio_name + ']:checked').val()
+            }
+            for (i = 1; i <= 2; i++) {//获取checkbox的的输入
+                let checkbox_name = String("checkbox_" + i);
+                let chk_value = [];
+                $('input:checkbox[name=' + checkbox_name + ']:checked').each(function () {
+                    chk_value.push($(this).val());
+                });
+                radio[i + 4] = "";//置为空
+                for (let j = 0; j < chk_value.length; j++) {
+                    radio[i + 4] = radio[i + 4] + chk_value[j];
+                }
+            }
+            //数组转json串
+            return JSON.stringify(radio);
+        }
+        function my_confirm() {
+            let json = getjson();
+            let msg = "您真的答案是：" + json + ",是否确认提交";
+            if (confirm(msg) === true) {
+                window.location.href = "result.html?radio=" + 5 + "checkbox=" + 2 + "&json=" + json;
+            } else {
+                return false;
+            }
+        }
+        $(function () {
+            let m = 1;
+            let s = 10;
+            setInterval(function () {
+                if (m >= 0) {
+                    if (s < 10) {
+                        $('#time').html("剩余时间：" + m + ':0' + s);
+                    } else {
+                        $('#time').html("剩余时间：" + m + ':' + s);
+                    }
+                    s--;
+                    if (s < 0) {
+                        s = 59;
+                        m--;
+                    }
+                    if (m === 0 && s < 1) {
+                        window.location.href = "result.html?radio=" + 5 + "checkbox=" + 2 + "&json=" + getjson();
+                    }
+                }
+            }, 1000)
+        })
+    </script>
+</head>
+<body>
+<h3 style="float: left">Block_Chain--Java Learning</h3>
+<div id="time" style="color:#ff0000;float: right;margin: 12px 20px 0 0;padding: 0 0 0 0;font-size: xx-large"></div>
+<br/><br/><br/>
+<hr/>
+<h4>一、单选题（每题12分，满分60分）</h4>
+1.当方法遇到异常又不知如何处理时，下列（） 做法是正确的。<br>
+<label>
+    <input type="radio" name="radio_1" value="A">
+    A、捕获异常
+</label>A、捕获异常<br>
+<label>
+    <input type="radio" name="radio_1" value="B">
+    B、抛出异常
+</label>B、抛出异常<br>
+<label>
+    <input type="radio" name="radio_1" value="C">
+    C、声明异常
+</label>C、声明异常<br>
+<label>
+    <input type="radio" name="radio_1" value="D">
+    D、嵌套异常
+</label>D、嵌套异常<br>
+2.下列说法错误的是() <br>
+<label>
+    <input type="radio" name="radio_2" value="A">
+    A、在java中一个类被声明为final类型，表示该类不能被继承。
+</label>A、在java中一个类被声明为final类型，表示该类不能被继承。<br>
+<label>
+    <input type="radio" name="radio_2" value="B">
+    B、当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，这叫引用传递。
+</label>B、当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，这叫引用传递。<br>
+<label>
+    <input type="radio" name="radio_2" value="C">
+    C、一个类不能既被声明为 abstract，又被声明为final。
+</label>C、一个类不能既被声明为 abstract，又被声明为final。<br>
+<label>
+    <input type="radio" name="radio_2" value="D">
+    D、方法的覆盖(Overriding)和重载(Overloading)是Java多态性的表现，他们没有区别。
+</label>D、方法的覆盖(Overriding)和重载(Overloading)是Java多态性的表现，他们没有区别。<br>
+3.下列创建数组的方法哪个是错误的? <br>
+<label>
+    <input type="radio" name="radio_3" value="A">
+    A、Date[] arr = new Date[5];
+</label>A、Date[] arr = new Date[5];<br>
+<label>
+    <input type="radio" name="radio_3" value="B">
+    B、Date arr[] = new Date[];
+</label>B、Date arr[] = new Date[];<br>
+<label>
+    <input type="radio" name="radio_3" value="C">
+    C、Date arr[][] = new Date[4][5];
+</label>C、Date arr[][] = new Date[4][5];<br>
+<label>
+    <input type="radio" name="radio_3" value="D">
+    D、Date arr[][] = new Date[4][];
+</label>D、Date arr[][] = new Date[4][];<br>
+4.在读文件Employee.txt 时，可以直接使用该文件作为参数的类是() <br>
+<label>
+    <input type="radio" name="radio_4" value="A">
+    A、BufferedReader
+</label>A、BufferedReader<br>
+<label>
+    <input type="radio" name="radio_4" value="B">
+    B、FileInputStream
+</label>B、FileInputStream<br>
+<label>
+    <input type="radio" name="radio_4" value="C">
+    C、DataOutputStream
+</label>C、DataOutputStream<br>
+<label>
+    <input type="radio" name="radio_4" value="D">
+    D、DataInputStream
+</label>D、DataInputStream<br>
+5.下列关于线程的说法中，错误的是？ <br>
+<label>
+    <input type="radio" name="radio_5" value="A">
+    A、线程必须通过方法start() 来启动。
+</label>A、线程必须通过方法start() 来启动。<br>
+<label>
+    <input type="radio" name="radio_5" value="B">
+    B、线程创建后，其优先级是可以改变的。
+</label>B、线程创建后，其优先级是可以改变的。<br>
+<label>
+    <input type="radio" name="radio_5" value="C">
+    C、实现Runnable接口或者从Thread类派生的线程类没有区别。
+</label>C、实现Runnable接口或者从Thread类派生的线程类没有区别。<br>
+<label>
+    <input type="radio" name="radio_5" value="D">
+    D、当对象用synchronized 修饰时，表明该对象在任一时刻只能由一个线程访问。
+</label>D、当对象用synchronized 修饰时，表明该对象在任一时刻只能由一个线程访问。<br>
+<br/>
+<h4>二、多选题（每题20分，满分40分，错选、少选、多选不得分）</h4>
+6.下列说法正确的是() <br>
+<label>
+    <input type="checkbox" name="checkbox_1" value="A">
+    A、在java中一个类被声明为final类型，表示该类不能被继承。
+</label>A、在java中一个类被声明为final类型，表示该类不能被继承。<br>
+<label>
+    <input type="checkbox" name="checkbox_1" value="B">
+    B、当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，这叫引用传递。
+</label>B、当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，这叫引用传递。<br>
+<label>
+    <input type="checkbox" name="checkbox_1" value="C">
+    C、一个类不能既被声明为 abstract，又被声明为final。
+</label>C、一个类不能既被声明为 abstract，又被声明为final。<br>
+<label>
+    <input type="checkbox" name="checkbox_1" value="D">
+    D、方法的覆盖(Overriding)和重载(Overloading)是Java多态性的表现，他们没有区别。
+</label>D、方法的覆盖(Overriding)和重载(Overloading)是Java多态性的表现，他们没有区别。<br>
+7.当方法遇到异常又不知如何处理时，下列（） 做法是不正确的。<br>
+<label>
+    <input type="checkbox" name="checkbox_2" value="A">
+    A、捕获异常
+</label>A、捕获异常<br>
+<label>
+    <input type="checkbox" name="checkbox_2" value="B">
+    B、抛出异常
+</label>B、抛出异常<br>
+<label>
+    <input type="checkbox" name="checkbox_2" value="C">
+    C、声明异常
+</label>C、声明异常<br>
+<label>
+    <input type="checkbox" name="checkbox_2" value="D">
+    D、嵌套异常
+</label>D、嵌套异常<br>
+<hr/>
+<input type="button" onclick="my_confirm()" value="考试完成">
+</body>
+</html>

@@ -1,4 +1,4 @@
-package org.xdubcl.website;
+package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,35 +11,52 @@ import java.util.List;
 
 @Controller
 public class AppController {
-
-
     @Autowired
-    private  UserRepository userRepo;
+    private UserRepository repo;
 
     @GetMapping("")
-    public String viewHomePage(){
+    public String viewHomePage() {
         return "index";
     }
 
     @GetMapping("/register")
-    public String showSignUpForm(Model model){
-        model.addAttribute("user",new User());
+    public String showSignUpForm(Model model) {
+        model.addAttribute("user", new User());
+
         return "signup_form";
     }
-    @PostMapping("/process_register")
-    public String processRegistration(User user){
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
+    @PostMapping("/process_register")
+    public String processRegistration(User user) {
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        userRepo.save(user);
+
+        repo.save(user);
+
         return "register_success";
     }
 
     @GetMapping("/list_users")
-    public String viewUsersList(Model model){
-        List<User> listUsers = (List<User>) userRepo.findAll();
-        model.addAttribute("listUsers",listUsers);
+    public String viewuserlist(Model model) {
+        List<User> listUsers = repo.findAll();
+        model.addAttribute("listUsers", listUsers);
+
         return "users";
     }
+
+    @GetMapping("/test")
+    public String HomePage() {
+
+
+        return "xvanzeti";
+    }
+    @GetMapping("/result")
+    public String ResultPage() {
+
+
+        return "result";
+    }
 }
+

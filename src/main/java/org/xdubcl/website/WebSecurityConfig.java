@@ -1,5 +1,6 @@
-package org.xdubcl.website;
+package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -14,32 +15,29 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final DataSource dataSource;
-
-    public WebSecurityConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
+    @Autowired
+    private DataSource dataSource;
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return new CustomUserDetailsService();
+        return  new com.example.demo.CustomUserDetailsService();
     }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        return  new BCryptPasswordEncoder();
     }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService() );
+        DaoAuthenticationProvider authProvider =new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
+
     }
 
     @Override
@@ -47,18 +45,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         auth.authenticationProvider(authenticationProvider());
     }
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests()
-       .antMatchers("users").authenticated()
-       .anyRequest().permitAll()
-       .and()
-       .formLogin()
-            .usernameParameter("email").defaultSuccessUrl("/users")
-            .permitAll()
-       .and()
-       .logout().logoutSuccessUrl("/").permitAll();
-
+        http.authorizeRequests()
+                .antMatchers("/list_users").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .usernameParameter("email")
+                .defaultSuccessUrl("/list_users")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/").permitAll();
     }
 }
