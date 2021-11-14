@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return  new com.example.demo.CustomUserDetailsService();
+        return  new CustomUserDetailsService();
     }
 
     @Bean
@@ -52,9 +52,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/list_users")
-                .permitAll()
+                    .usernameParameter("email")
+                    .defaultSuccessUrl("/list_users")
+                    .permitAll()
                 .and()
                 .logout()
                 .logoutSuccessUrl("/").permitAll();

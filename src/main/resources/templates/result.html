@@ -7,25 +7,25 @@
     <script>
         //获取url中的参数
         function getUrlParam(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            let r = window.location.search.substr(1).match(reg); //匹配目标参数
             if (r != null) return unescape(r[2]);
             return null; //返回参数值
         }
         function showResult() {
-            var answer = ["B", "D", "B", "B", "D", "ABC", "ACD"];//标准答案
-            var answer_score = [12, 12, 12, 12, 12, 20, 20];//答案的分数
-            var user_answer = JSON.parse(getUrlParam("json"));//获取用户答案
-            var radio_num = parseInt(getUrlParam("radio"));//获取单选个数
-            var checkbox_num = parseInt(getUrlParam("checkbox"));//获取多选个数
-            var radio_result = 0;//单选分数
-            var checkbox_result = 0;//多选分数
-            var radio_right_num = 0;//单选答对个数
-            var checkbox_right_num = 0;//多选答对个数
-            var result = 0;//总分数
-            var user_answer_result = new Array();//用户没到题的答题情况
-            for (var i = 0; i < user_answer.length; i++) {
-                if (user_answer[i] == answer[i]) {
+            let answer = ["B", "D", "B", "B", "D", "ABC", "ACD"];//标准答案
+            let answer_score = [12, 12, 12, 12, 12, 20, 20];//答案的分数
+            let user_answer = JSON.parse(getUrlParam("json"));//获取用户答案
+            let radio_num = parseInt(getUrlParam("radio"));//获取单选个数
+            let checkbox_num = parseInt(getUrlParam("checkbox"));//获取多选个数
+            let radio_result = 0;//单选分数
+            let checkbox_result = 0;//多选分数
+            let radio_right_num = 0;//单选答对个数
+            let checkbox_right_num = 0;//多选答对个数
+            let result;//总分数
+            let user_answer_result = [];//用户没到题的答题情况
+            for (let i = 0; i < user_answer.length; i++) {
+                if (user_answer[i] === answer[i]) {
                     if (i < radio_num) {
                         radio_result = radio_result + answer_score[i];
                         radio_right_num++;
@@ -40,19 +40,19 @@
             }
             result = checkbox_result + radio_result;
             //结果展示
-            var show_result1;
-            var show_result2;
-            var show_result3;
-            var show_result4;
-            var show_result5;
-            var show_result6;
+            let show_result1;
+            let show_result2;
+            let show_result3;
+            let show_result4;
+            let show_result5;
+            let show_result6;
             show_result1 = "Your Result is：";
-            for (var i = 0; i < user_answer.length; i++) {
-                show_result1 = show_result1 + (i + 1) + "：" + user_answer_result[i] + "；&nbsp;";
+            for (let j = 0; j < user_answer.length; j++) {
+                show_result1 = show_result1 + (j + 1) + "：" + user_answer_result[j] + "；&nbsp;";
             }
             show_result2 = "Total：" + user_answer.length;
-            show_result3 = "True answers：" + radio_right_num + "；&nbsp;得分：" + radio_result;
-            show_result4 = "Num of True answers：" + checkbox_right_num + "；&nbsp;得分：" + checkbox_result;
+            show_result3 = "True answers：" + radio_right_num + "；&nbsp;scores：" + radio_result;
+            show_result4 = "Num of True answers：" + checkbox_right_num + "；&nbsp;scores：" + checkbox_result;
             show_result5 = "False answers：" + (user_answer.length - radio_right_num - checkbox_right_num);
             show_result6 = " Nus of False answers：" + result;
             $("p#show_result1").html(show_result1);

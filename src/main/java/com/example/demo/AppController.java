@@ -50,13 +50,17 @@ public class AppController {
     public String HomePage() {
 
 
+        return "homepage";
+    }
+
+
+    @GetMapping("/xvanze")
+    public String Xvanzeti() {
+
+
         return "xvanzeti";
     }
-    @GetMapping("/result")
-    public String ResultPage() {
 
 
-        return "result";
-    }
 }
 

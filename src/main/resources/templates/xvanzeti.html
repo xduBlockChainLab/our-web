@@ -1,7 +1,7 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>考试系统</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
         function getjson() {
@@ -27,12 +27,8 @@
         }
         function my_confirm() {
             let json = getjson();
-            let msg = "您真的答案是：" + json + ",是否确认提交";
-            if (confirm(msg) === true) {
                 window.location.href = "result.html?radio=" + 5 + "checkbox=" + 2 + "&json=" + json;
-            } else {
-                return false;
-            }
+
         }
         $(function () {
             let m = 1;
@@ -186,5 +182,6 @@
 </label>D、嵌套异常<br>
 <hr/>
 <input type="button" onclick="my_confirm()" value="考试完成">
+
 </body>
 </html>

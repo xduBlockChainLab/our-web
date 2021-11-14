@@ -1,8 +1,7 @@
-package org.xdubcl.website;
+package com.example.demo;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.xdubcl.website.User;
 
 import java.util.Collection;
 
@@ -13,7 +12,6 @@ public class CustomUserDetails implements UserDetails {
     public CustomUserDetails(User user) {
         this.user = user;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
