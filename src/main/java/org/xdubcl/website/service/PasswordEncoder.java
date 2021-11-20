@@ -1,4 +1,4 @@
-package com.example.demo;
+package org.xdubcl.website.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

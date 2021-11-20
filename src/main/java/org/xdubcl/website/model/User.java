@@ -1,4 +1,4 @@
-package com.example.demo;
+package org.xdubcl.website.model;
 
 import javax.persistence.*;
 

@@ -1,7 +1,8 @@
-package com.example.demo;
+package org.xdubcl.website.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.xdubcl.website.model.User;
 
 import java.util.Collection;
 

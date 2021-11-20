@@ -1,4 +1,4 @@
-package com.example.demo;
+package org.xdubcl.website.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.xdubcl.website.model.User;
+import org.xdubcl.website.repository.UserRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package org.xdubcl.website.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
