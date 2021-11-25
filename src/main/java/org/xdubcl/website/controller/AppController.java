@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.xdubcl.website.model.User;
 import org.xdubcl.website.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -42,7 +43,7 @@ public class AppController {
 
     @GetMapping("/list_users")
     public String viewuserlist(Model model) {
-        List<User> listUsers = repo.findAll();
+        Iterable<User> listUsers = repo.findAll();
         model.addAttribute("listUsers", listUsers);
 
         return "users";

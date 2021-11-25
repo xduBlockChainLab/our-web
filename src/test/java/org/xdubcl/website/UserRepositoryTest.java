@@ -28,10 +28,10 @@ public class UserRepositoryTest {
     @Test
     public void testCreateUser(){
         User user =new User();
-        user.setEmail("LBJ@gmail.com");
-        user.setPassword("lbj2021");
-        user.setFirstname("lebron");
-        user.setLastname("James");
+        user.setEmail("LJ@gmal.com");
+        user.setPassword("lj2021");
+        user.setFirstname("lron");
+        user.setLastname("Jaes");
 
         User savedUser = repo.save(user);
         User existUser = entityManager.find(User.class, savedUser.getId());
@@ -48,5 +48,6 @@ public class UserRepositoryTest {
         assertThat(user).isNotNull();
 
     }
+
 
 }

@@ -3,7 +3,6 @@ package org.xdubcl.website.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,9 +12,6 @@ public class User {
 
     @Column(nullable = false, length = 64)
     private String  password;
-
-
-
 
     @Column(nullable = false,length = 20)
     private String firstname;
