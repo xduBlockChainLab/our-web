@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.xdubcl.website.service.ExamService;
 
 @Controller
-@RequestMapping("/problem")
-public class ProblemController {
+@RequestMapping("/exam")
+public class ExamController {
 
     @Autowired
     ExamService examService;
 
-    @GetMapping("/exam")
+    @GetMapping("")
     public String exam(){
          examService.generate();
          return "randomPage";
+    }
+
+    @GetMapping("/result")
+    public String result(){
+        examService.judge();
+        return "result";
     }
 }
