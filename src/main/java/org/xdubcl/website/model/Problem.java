@@ -2,10 +2,7 @@ package org.xdubcl.website.model;
 
 import org.hibernate.annotations.GeneratorType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Problem {
@@ -14,6 +11,16 @@ public class Problem {
     private Long id;
 
     String question;
+
+    String answer;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public Long getId() {
         return id;
