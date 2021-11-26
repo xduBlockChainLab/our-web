@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class ExamService {
 
     public String generate(){
-        return "exam setted successfully";
+        return "exam setsuccessfully";
     }
 
     public void judge(){
