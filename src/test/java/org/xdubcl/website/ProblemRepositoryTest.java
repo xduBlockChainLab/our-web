@@ -28,7 +28,7 @@ public class ProblemRepositoryTest {
     {
 
         Problem problem =new Problem();
-        problem.setQuestion("什么是java接口");
+        problem.setQuestion("什么是java接口?");
 
 
         Problem saveproblem = repo.save(problem);
