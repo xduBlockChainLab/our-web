@@ -32,6 +32,9 @@ public class AppController {
     @PostMapping("/process_register")
     public String processRegistration(User user) {
 
+        /**
+         * @description 避免在数据库能看到用户密码的问题
+         */
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);

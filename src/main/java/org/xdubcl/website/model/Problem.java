@@ -1,6 +1,5 @@
 package org.xdubcl.website.model;
 
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
