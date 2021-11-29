@@ -40,8 +40,19 @@
 
 
         <ul>
-            <li class="special "><a th:href="@{/exam/addpage} ">上传题目</a></li>
-            <li class="special "><a th:href="@{/xvanze} ">题库</a></li>
+
+            <li class="special "><a href="# ">题目操作</a>
+
+                <ul>
+                    <li><a th:href="@{/exam/addpage}">增加题目</a></li>
+                    <li><a href="# ">删除题目</a></li>
+                    <li><a href="# ">改变已有题目</a></li>
+                    <li><a th:href="@{/exam/list_problems}">查看题目</a></li>
+                </ul>
+
+            </li>
+
+            <li class="special "><a th:href="@{/xvanze} ">答题</a></li>
             <li class="special "><a href="https://github.com/xduBlockChainLab">项目集</a></li>
             <li class="special "><a href="# ">各种资源</a>
 

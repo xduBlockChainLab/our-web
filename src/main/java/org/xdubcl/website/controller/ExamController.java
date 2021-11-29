@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.xdubcl.website.model.Problem;
 import org.xdubcl.website.model.User;
 import org.xdubcl.website.repository.ProblemRepository;
+import org.xdubcl.website.repository.UserRepository;
 import org.xdubcl.website.service.ExamService;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-
 
 
     @Autowired
@@ -52,6 +52,15 @@ public class ExamController {
         repo.save(problem);
 
         return "AddQuestionSuccessfully";
+    }
+
+
+    @GetMapping("/list_problems")
+    public String viewquestionlist(Model model) {
+        Iterable<Problem> listQuestions = repo.findAll();
+        model.addAttribute("listquestions", listQuestions);
+
+        return "checkquestions";
     }
 
 

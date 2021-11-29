@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Questions</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div class ="container text-center">
+
+    <div>
+        <h1>List of All questions</h1>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Question</th>
+                <th>Answer/th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="question: ${listquestions}">
+                <td th:text="${question.question}">Question</td>
+                <td th:text="${question.answer}">Answer</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+</body>
+
+</html>
