@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.xdubcl.website.model.User;
 import org.xdubcl.website.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class AppController {
     @Autowired
