@@ -11,6 +11,16 @@ public class User {
     @Column(nullable = false, unique = true, length = 45)
     private String email;
 
+    private Integer username;
+
+    public Integer getUsername() {
+        return username;
+    }
+
+    public void setUsername(Integer username) {
+        this.username = username;
+    }
+
     @Column(nullable = false, length = 64)
     private String  password;
 
