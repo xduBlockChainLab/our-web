@@ -46,5 +46,27 @@ public class Role {
         this.rolename = rolename;
     }
 
+    public Integer getRoleId() {
+        return roleId;
+    }
 
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
 }
