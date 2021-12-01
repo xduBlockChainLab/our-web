@@ -1,6 +1,7 @@
 package org.xdubcl.website.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -57,5 +58,28 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    @JoinTable(
+            joinColumns = @JoinColumn,
+            inverseJoinColumns = @JoinColumn
+    )
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+
+
+
+
+
+    
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -1,11 +1,10 @@
 package org.xdubcl.website.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
@@ -15,6 +14,10 @@ public class Permission {
     Integer id;
     String permissionname;
     String permission_name;
+
+    @JsonBackReference
+    @ManyToMany(mappedBy = "permissions")
+    private List<Role> roles;
 
     public Integer getId() {
         return id;

@@ -1,11 +1,11 @@
 package org.xdubcl.website.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @JsonIgnoreProperties({"handle","hibernateLazyInitializer"})
@@ -16,7 +16,19 @@ public class Role {
 
     String rolename;
 
-    String role_name;
+
+
+    private Integer roleId;
+    @JsonBackReference
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(
+            joinColumns = @JoinColumn,
+            inverseJoinColumns = @JoinColumn
+    )
+    private List<Permission> permissions;
 
     public Integer getId() {
         return id;
@@ -34,11 +46,5 @@ public class Role {
         this.rolename = rolename;
     }
 
-    public String getRole_name() {
-        return role_name;
-    }
 
-    public void setRole_name(String role_name) {
-        this.role_name = role_name;
-    }
 }
