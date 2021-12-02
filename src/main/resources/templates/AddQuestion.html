@@ -35,12 +35,13 @@
 <body>
 <div class ="container text-center">
     <div>
-        <br>   <h1 style="color: coral ; font-size: 50px">        You can add some questions here</h1>
+     <br>   <h1 style="color: coral ; font-size: 50px">        You can add some questions here</h1>
     </div>
     <div>
 
         <
-        <form th:action="@{/suggest/addsuggestion}" method="post"
+
+        <form th:action="@{/exam/addQuestion}" method="post"
               style="max-width: 600px; margin: 0 auto ;color: black"
               th:object="${problem}"
         >

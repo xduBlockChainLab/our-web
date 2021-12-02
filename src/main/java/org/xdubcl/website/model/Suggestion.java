@@ -12,9 +12,7 @@ public class Suggestion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    String question;
-
-    String answer;
+    String suggestions;
 
     public Long getId() {
         return id;
@@ -24,19 +22,11 @@ public class Suggestion {
         this.id = id;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getSuggestions() {
+        return suggestions;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setSuggestions(String suggestions) {
+        this.suggestions = suggestions;
     }
 }

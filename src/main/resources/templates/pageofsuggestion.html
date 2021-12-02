@@ -35,33 +35,27 @@
 <body>
 <div class ="container text-center">
     <div>
-     <br>   <h1 style="color: coral ; font-size: 50px">        You can add some questions here</h1>
+        <br>   <h1 style="color: coral ; font-size: 50px">        You can add some suggestions here</h1>
     </div>
     <div>
 
         <
-        <form th:action="@{/exam/addQuestion}" method="post"
+        <form th:action="@{/suggest/addSuggestion}" method="post"
               style="max-width: 600px; margin: 0 auto ;color: black"
-              th:object="${problem}"
+              th:object="${suggestion}"
         >
             <div class="m-3">
 
 
 
                 <div class="form-group row">
-                    <label style="color: coral ; font-size: 10px" class="col-form-label col-4">Question</label>
+                    <label style="color: coral ; font-size: 10px" class="col-form-label col-4">Suggestion</label>
                     <div class="col-8">
-                        <input type="text" class="form-control" th:field="*{question}" required
+                        <input type="text" class="form-control" th:field="*{suggestions}" required
                                minlength="2" maxlength="20"/>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label style="color: coral ; font-size: 10px" class="col-form-label col-4">Answer</label>
-                    <div class="col-8">
-                        <input type="text" class="form-control" th:field="*{answer}" required
-                               minlength="2" maxlength="20"/>
-                    </div>
-                </div>
+
 
                 <div>
                     <button style="color: coral ; font-size: 10px" type="submit" class="btn btn-primary">Sign Up</button>
