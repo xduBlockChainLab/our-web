@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.xdubcl.website.model.Role;
 import org.xdubcl.website.repository.RoleRepository;
 
+import java.util.List;
+
 @Service
 public class RoleService {
     @Autowired
@@ -12,4 +14,5 @@ public class RoleService {
     public Role findRolesById(int rid){
         return roleRepository.findById(rid);
     }
+
 }

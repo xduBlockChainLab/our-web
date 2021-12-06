@@ -81,15 +81,11 @@ public class User {
     public List<Role> getRoles() {
         return roles;
     }
-
-
-
-
-
-
-    
-
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public void addRole(Role roles){
+        this.roles.add(roles);
     }
 }

@@ -16,7 +16,9 @@ public class Role {
 
     String rolename;
 
-
+    public Role(String rolename) {
+        this.rolename = rolename;
+    }
 
     private Integer roleId;
     @JsonBackReference
@@ -29,6 +31,10 @@ public class Role {
             inverseJoinColumns = @JoinColumn
     )
     private List<Permission> permissions;
+
+    public Role() {
+
+    }
 
     public Integer getId() {
         return id;
