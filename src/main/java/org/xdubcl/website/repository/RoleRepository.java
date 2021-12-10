@@ -9,8 +9,9 @@ import java.util.List;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role,Integer> {
-    Role findById(int id);
+    abstract Role findById(int id);
     public List<Role> findAllByRolename(String roleName);
     public void deleteByRolename(String roleName);
+    public boolean isRoleExist(String roleName);
 
 }

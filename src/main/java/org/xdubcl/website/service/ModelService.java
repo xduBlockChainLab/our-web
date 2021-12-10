@@ -65,4 +65,7 @@ public class ModelService {
         }
         permissionRepository.deleteByPermissionname(permissionName);
     }
+
 }
+
+
