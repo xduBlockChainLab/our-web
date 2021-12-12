@@ -10,18 +10,11 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public abstract class RoleService extends JdbcDaoSupport implements RoleRepository {
+public class RoleService{
     @Autowired
     RoleRepository roleRepository;
-    public Role findRolesById(int rid){
-        return roleRepository.findById(rid);
+    public Role findRolesById(int id){
+        return roleRepository.findById(id);
     }
-    @Transactional
-    public boolean isRoleExist(String roleName){
-        String sql = "SELECT COUNT(*) FROM ROLE where NAME=?";
-        int count = getJdbcTemplate().queryForObject(sql,new Object[]{roleName},Integer.class);
 
-        if(count >=1) return true;
-        return false;
-    }
 }
